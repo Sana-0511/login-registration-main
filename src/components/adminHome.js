@@ -94,7 +94,7 @@ export default function AdminHome({ userData }) {
   return (
     <div className="auth-wrapper" style={{ height: "auto" }}>
       <div className="auth-inner" style={{ width: "auto" }}>
-        <h3>Welcom Admin</h3>
+        <h3>Welcome Admin</h3>
         <table style={{ width: 500 }}>
           <tr>
             <th>Name</th>
