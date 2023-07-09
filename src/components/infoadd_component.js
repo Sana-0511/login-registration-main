@@ -281,7 +281,8 @@ export default function Infoadd() {
   const [price, setPrice] = useState("");
   const [mapLocation, setMapLocation] = useState("");
   const [propertyImages, setPropertyImages] = useState([]);
-
+  const [image, setImage] = useState("");
+    const [allImage, setAllImage] = useState([]);
   const handleSubmit = (e) => {
     e.preventDefault();
 
