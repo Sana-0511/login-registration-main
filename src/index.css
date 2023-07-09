@@ -4,7 +4,9 @@
   box-sizing: border-box;
 }
 body {
-  background: #1c8ef9 !important;
+  background-image: url(./i.png);
+  background-repeat: no-repeat;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   font-weight: 400;
@@ -33,25 +35,46 @@ html,
 }
 
 .navbar-light {
-  background-color: #ffffff;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  
+  color: beige;
 }
 
 .auth-wrapper {
+  
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: right;
+  flex-direction:column;
   text-align: left;
+  
+  
 }
 
 .auth-inner {
+  background-color: rgba(0, 0, 0, 0.5);
   width: 450px;
   margin: auto;
-  background: #ffffff;
+  color: white;
+
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
   padding: 40px 55px 45px 55px;
   border-radius: 15px;
   transition: all 0.3s;
+}
+
+.auth-inner:before {
+	background-image: url("./i.png");
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	content: "";
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+	display: block;
+	filter: blur(xl);
 }
 
 .auth-wrapper .form-control:focus {
@@ -80,7 +103,7 @@ html,
 }
 
 .forgot-password a {
-  color: #167bff;
+  color: wheat
 }
 
 table,

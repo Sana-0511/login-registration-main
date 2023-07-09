@@ -35,6 +35,7 @@ export default function Login() {
   }
 
   return (
+    
     <div className="auth-wrapper">
       <div className="auth-inner">
         <form onSubmit={handleSubmit}>
@@ -74,7 +75,7 @@ export default function Login() {
           </div>
 
           <div className="d-grid">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary bg-cyan-950">
               Submit
             </button>
           </div>

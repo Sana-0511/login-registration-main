@@ -48,20 +48,20 @@ function App() {
     <Router>
       <div className="App">
         {isLoggedIn === "true" && (
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <nav className="navbar navbar-expand-lg navbar-light ">
             <div className="container-fluid">
-              <Link className="navbar-brand" to="/">
+              <Link className="navbar-brand text-white" to="/">
                 Home
               </Link>
               <div className="collapse navbar-collapse">
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
-                    <Link className="nav-link" to="/userDetails">
+                    <Link className="nav-link text-white" to="/userDetails">
                       User Details
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link" to="/infoadd">
+                    <Link className="nav-link text-white" to="/infoadd">
                       Info Add
                     </Link>
                   </li>
