@@ -666,7 +666,7 @@ export default function Infoadd() {
   };
 
   return (
-    <div className="auth-wrapper margin-top: 100px">
+    <div className="auth-wrapper-prop">
       <div className="auth-inner">
         <form onSubmit={handleSubmit}>
           <h3>Property Details</h3>
