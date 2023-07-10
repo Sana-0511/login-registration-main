@@ -611,7 +611,7 @@ export default function Infoadd() {
       </div>
     </div>
   );
-}*/
+}
 
 import React, { useState } from "react";
 
@@ -795,4 +795,173 @@ export default function Infoadd() {
       </div>
     </div>
   );
+}*/
+
+import React, { useState } from "react";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCV-KqctjpkX572AqOdtC9Hi25ZxpXX3qY",
+  authDomain: "aadyaventures-13604.firebaseapp.com",
+  databaseURL: "https://aadyaventures-13604-default-rtdb.firebaseio.com",
+  projectId: "aadyaventures-13604",
+  storageBucket: "aadyaventures-13604.appspot.com",
+  messagingSenderId: "849608147196",
+  appId: "1:849608147196:web:9dffb94dd85a648ad25779",
+  measurementId: "G-5R0YB1FBL7"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+export default function Infoadd() {
+  const [propertyName, setPropertyName] = useState("");
+  const [propertyType, setPropertyType] = useState("");
+  const [address, setAddress] = useState("");
+  const [area, setArea] = useState("");
+  const [mapLocation, setMapLocation] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [state, setState] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const propertyData = {
+      propertyName,
+      propertyType,
+      address,
+      area,
+      mapLocation,
+      description,
+      price,
+      state,
+    };
+
+    db.collection("PropertyRecord")
+      .add(propertyData)
+      .then(() => {
+        alert("Information Successfully Added");
+        // Reset the form fields
+        setPropertyName("");
+        setPropertyType("");
+        setAddress("");
+        setArea("");
+        setMapLocation("");
+        setDescription("");
+        setPrice("");
+        setState("");
+      })
+      .catch((error) => {
+        console.log("Error creating property entry:", error);
+        alert("Something went wrong");
+      });
+  };
+
+  return (
+    <div className="auth-wrapper">
+      <div className="auth-inner-prop">
+        <form onSubmit={handleSubmit}>
+          <h3>Property Details</h3>
+
+          <div className="mb-3">
+            <label>Property Name</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter property name"
+              value={propertyName}
+              onChange={(e) => setPropertyName(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label>Property Type</label>
+            <select
+              className="form-control"
+              value={propertyType}
+              onChange={(e) => setPropertyType(e.target.value)}
+            >
+              <option value="">Select property type</option>
+              <option value="Residential">Residential</option>
+              <option value="Commercial">Commercial</option>
+            </select>
+          </div>
+
+          <div className="mb-3">
+            <label>Address</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label>Area (sqft)</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter area in square feet"
+              value={area}
+              onChange={(e) => setArea(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label>Google Maps Location Link</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter Google Maps location link"
+              value={mapLocation}
+              onChange={(e) => setMapLocation(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label>Description</label>
+            <textarea
+              className="form-control"
+              placeholder="Enter property description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            ></textarea>
+          </div>
+
+          <div className="mb-3">
+            <label>Price</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter price"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label>State</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter state"
+              value={state}
+              onChange={(e) => setState(e.target.value)}
+            />
+          </div>
+
+          <div className="d-grid">
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 }
+
