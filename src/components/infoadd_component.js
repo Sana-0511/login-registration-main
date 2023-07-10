@@ -666,10 +666,12 @@ export default function Infoadd() {
   };
 
   return (
-    <div className="auth-wrapper-prop">
-      <div className="auth-inner">
+    <div className="auth-wrapper">
+      <div className="auth-inner-prop">
         <form onSubmit={handleSubmit}>
           <h3>Property Details</h3>
+          <div className="row">
+          <div className="col">
 
           <div className="mb-3">
             <label>Property Name</label>
@@ -681,6 +683,9 @@ export default function Infoadd() {
               onChange={(e) => setPropertyName(e.target.value)}
             />
           </div>
+          </div>
+
+          <div className="col">
 
           <div className="mb-3">
             <label>Property Type</label>
@@ -694,6 +699,11 @@ export default function Infoadd() {
               <option value="Commercial">Commercial</option>
             </select>
           </div>
+          </div>
+          </div>
+
+          <div className="row">
+          <div className="col">
 
           <div className="mb-3">
             <label>Address</label>
@@ -705,7 +715,8 @@ export default function Infoadd() {
               onChange={(e) => setAddress(e.target.value)}
             />
           </div>
-
+          </div>
+          <div className="col">
           <div className="mb-3">
             <label>Area (sqft)</label>
             <input
@@ -716,6 +727,11 @@ export default function Infoadd() {
               onChange={(e) => setArea(e.target.value)}
             />
           </div>
+          </div>
+          </div>
+          
+          <div className="row">
+          <div className="col">
 
           <div className="mb-3">
             <label>Google Maps Location Link</label>
@@ -727,18 +743,24 @@ export default function Infoadd() {
               onChange={(e) => setMapLocation(e.target.value)}
             />
           </div>
-
+          </div>
+          
+          <div className="col">
           <div className="mb-3">
             <label>Description</label>
-            <textarea
+            <input
               className="form-control"
               placeholder="Enter property description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
+            ></input>
+          </div>
+          </div>
           </div>
 
-          <div className="mb-3">
+          <div className="row">
+          <div className="col">
+          <div className="mb-4">
             <label>Price</label>
             <input
               type="text"
@@ -748,8 +770,10 @@ export default function Infoadd() {
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>
+          </div>
 
-          <div className="mb-3">
+          <div className="col">
+          <div className="mb-4">
             <label>State</label>
             <input
               type="text"
@@ -758,6 +782,8 @@ export default function Infoadd() {
               value={state}
               onChange={(e) => setState(e.target.value)}
             />
+          </div>
+          </div>
           </div>
 
           <div className="d-grid">
