@@ -337,11 +337,12 @@ export default function Infoadd() {
   };
 
   return (
-    <div className="auth-wrapper margin-top: 100px">
-      <div className="auth-inner">
+    <div className="auth-wrapper">
+      <div className="auth-inner-prop">
         <form onSubmit={handleSubmit}>
           <h3>Property Details</h3>
-
+          <div className="row">
+          <div className="col">  
           <div className="mb-3">
             <label>Property Name</label>
             <input
@@ -351,7 +352,8 @@ export default function Infoadd() {
               onChange={(e) => setPropertyName(e.target.value)}
             />
           </div>
-
+          </div>
+          <div className="col"> 
           <div className="mb-3">
             <label>Area</label>
             <input
@@ -361,7 +363,11 @@ export default function Infoadd() {
               onChange={(e) => setArea(e.target.value)}
             />
           </div>
+          </div>
+          </div>
 
+          <div className="row">
+          <div className="col"> 
           <div className="mb-3">
             <label>Location</label>
             <input
@@ -371,7 +377,9 @@ export default function Infoadd() {
               onChange={(e) => setLocation(e.target.value)}
             />
           </div>
-
+          </div>
+          
+          <div className="col"> 
           <div className="mb-3">
             <label>Property Type</label>
             <select
@@ -383,7 +391,11 @@ export default function Infoadd() {
               <option value="Commercial">Commercial</option>
             </select>
           </div>
+          </div>
+          </div>
 
+          <div className="row">
+          <div className="col"> 
           <div className="mb-3">
             <label>Price</label>
             <input
@@ -393,7 +405,9 @@ export default function Infoadd() {
               onChange={(e) => setPrice(e.target.value)}
             />
           </div>
-
+          </div>
+          
+          <div className="col"> 
           <div className="mb-3">
             <label>Google Maps Location Link</label>
             <input
@@ -403,8 +417,10 @@ export default function Infoadd() {
               onChange={(e) => setMapLocation(e.target.value)}
             />
           </div>
+          </div>
+          </div>
           
-          <div className="mb-3">
+          <div className="mb-4">
             <label>Property Images</label>
             <input
               type="file"
@@ -415,7 +431,7 @@ export default function Infoadd() {
           </div>
 
           <div className="d-grid">
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary w-[300px]">
               Submit
             </button>
           </div>

@@ -43,6 +43,10 @@ import Infoadd from "./components/infoadd_component";
 
 function App() {
   const isLoggedIn = window.localStorage.getItem("loggedIn");
+  const logOut = () => {
+    window.localStorage.clear();
+    window.location.href = "./sign-in";
+  };
 
   return (
     <Router>
@@ -51,10 +55,15 @@ function App() {
           <nav className="navbar navbar-expand-lg navbar-light ">
             <div className="container-fluid">
               <Link className="navbar-brand text-white" to="/">
-                Home
+                AADYA VENTURES
               </Link>
-              <div className="collapse navbar-collapse">
+              
                 <ul className="navbar-nav ml-auto">
+                  <li className="nav-item">
+                    <Link className="nav-link text-white" to="/">
+                      Home
+                    </Link>
+                  </li>
                   <li className="nav-item">
                     <Link className="nav-link text-white" to="/userDetails">
                       User Details
@@ -65,9 +74,15 @@ function App() {
                       Info Add
                     </Link>
                   </li>
+                  <li className="nav-item">
+                  <button onClick={logOut} className="logout">
+                   Log Out
+                  </button>
+                  </li>
+                  
                 </ul>
               </div>
-            </div>
+            
           </nav>
         )}
 

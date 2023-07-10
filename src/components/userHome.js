@@ -6,6 +6,7 @@ export default function UserHome({ userData }) {
     window.location.href = "./sign-in";
   };
   return (
+    
     <div className="auth-wrapper">
       <div className="auth-inner">
         <div>
@@ -18,5 +19,6 @@ export default function UserHome({ userData }) {
         </div>
       </div>
     </div>
+  
   );
 }

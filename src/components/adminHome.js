@@ -92,6 +92,7 @@ export default function AdminHome({ userData }) {
   }
 
   return (
+    <div className="Spacing">
     <div className="auth-wrapper" style={{ height: "auto" }}>
       <div className="auth-inner" style={{ width: "auto" }}>
         <h3>Welcome Admin</h3>
@@ -143,6 +144,7 @@ export default function AdminHome({ userData }) {
           Log Out
         </button>
       </div>
+    </div>
     </div>
   );
 }
