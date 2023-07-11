@@ -91,10 +91,10 @@ export default function Login() {
 
 import React, { useState } from "react";
 import { auth } from "./firebaseConfig.js";
-import { Navigate } from "react-router-dom";
+//import { Navigate } from "react-router-dom";
 
 
-export default function Login() {
+export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
@@ -109,17 +109,15 @@ export default function Login() {
       setEmail("");
       setPassword("");
       setLoggedIn(true);
-  
+      props.handleLogin();
+      console.log("loggedIn:", loggedIn);
+
 
     } catch (error) {
       console.log("Error during login:", error);
       alert("Invalid email or password");
     }
   };
-
-  if (loggedIn) {
-    return <Navigate to="src/components/infoadd_component.js" />;
-  }
 
   return (
     
