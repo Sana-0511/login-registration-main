@@ -34,7 +34,7 @@ import React, { useState } from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import PropertyTable from "./components/propertytable";
 import Login from "./components/login_component";
 import SignUp from "./components/signup_component";
 //import UserDetails from "./components/userDetails";
@@ -66,7 +66,7 @@ function App() {
               
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item">
-                    <Link className="nav-link text-white" to="/">
+                    <Link className="nav-link text-white" to="/propertytable">
                       Home
                     </Link>
                   </li>
@@ -92,6 +92,10 @@ function App() {
         <Route
             path="/"
             element={<Login handleLogin={handleLogin} />}
+          />
+        <Route
+            path="/propertytable"
+            element={loggedIn ? <PropertyTable /> : <Login handleLogin={handleLogin} />}
           />
           <Route path="/sign-in" element={<Login handleLogin={handleLogin} />} />
           <Route path="/sign-up" element={<SignUp />} />

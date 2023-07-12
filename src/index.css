@@ -42,6 +42,91 @@ html,
   color: beige;
 }
 
+
+.property-table-container {
+  margin: 20px;
+  
+}
+
+.table-heading {
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.property-table {
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: 1px solid white;
+}
+.property-table::before{
+  background-image: url("./i.png");
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	content: "";
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+	display: block;
+	filter: blur(xl);
+}
+
+.property-table th,
+.property-table td {
+  max-width: 400px;
+  word-wrap: break-word;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid white;
+}
+
+.property-table th {
+  font-weight: bold;
+  
+}
+
+.edit-button,
+.delete-button,
+.save-button,
+.cancel-button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+}
+
+.save-button,
+.cancel-button {
+  background-color: #008cba;
+  color: white;
+  border: none;
+}
+
+.save-button {
+  margin-right: 5px;
+}
+
+.cancel-button {
+  margin-left: 5px;
+}
+
 .Spacing{
   margin-top: 200px;
 }
