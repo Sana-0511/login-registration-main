@@ -975,7 +975,6 @@ export default function Infoadd() {
   const [area, setArea] = useState("");
   const [mapLocation, setMapLocation] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
   const [state, setState] = useState("");
   const [propertyImages, setPropertyImages] = useState([]);
   const [imageUrls, setImageUrls] = useState([]);
@@ -1003,7 +1002,6 @@ export default function Infoadd() {
         area,
         mapLocation,
         description,
-        price,
         state,
         propertyImages: downloadUrls,
       };
@@ -1019,7 +1017,6 @@ export default function Infoadd() {
       setArea("");
       setMapLocation("");
       setDescription("");
-      setPrice("");
       setState("");
       setPropertyImages([]);
       setImageUrls([]);
@@ -1040,6 +1037,9 @@ export default function Infoadd() {
         <form onSubmit={handleSubmit}>
           <h3>Property Details</h3>
 
+          <div className="row">
+          <div className="col">
+
           <div className="mb-3">
             <label>Property Name</label>
             <input
@@ -1049,7 +1049,10 @@ export default function Infoadd() {
               value={propertyName}
               onChange={(e) => setPropertyName(e.target.value)}
             />
-          </div>
+          </div></div>
+
+          
+          <div className="col">
 
           <div className="mb-3">
             <label>Property Type</label>
@@ -1062,8 +1065,10 @@ export default function Infoadd() {
               <option value="Residential">Residential</option>
               <option value="Commercial">Commercial</option>
             </select>
-          </div>
+          </div></div></div>
 
+          <div className="row">
+          <div className="col">
           <div className="mb-3">
             <label>Address</label>
             <input
@@ -1073,8 +1078,10 @@ export default function Infoadd() {
               value={address}
               onChange={(e) => setAddress(e.target.value)}
             />
-          </div>
+          </div></div>
 
+         
+          <div className="col">
           <div className="mb-3">
             <label>Area (sqft)</label>
             <input
@@ -1084,8 +1091,10 @@ export default function Infoadd() {
               value={area}
               onChange={(e) => setArea(e.target.value)}
             />
-          </div>
+          </div></div></div>
 
+          <div className="row">
+          <div className="col">
           <div className="mb-3">
             <label>Google Maps Location Link</label>
             <input
@@ -1095,19 +1104,22 @@ export default function Infoadd() {
               value={mapLocation}
               onChange={(e) => setMapLocation(e.target.value)}
             />
-          </div>
+          </div></div>
 
+          <div className="col">
           <div className="mb-3">
             <label>Description</label>
-            <textarea
+            <input
               className="form-control"
               placeholder="Enter property description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
-          </div>
+            ></input>
+          </div></div></div>
 
-          <div className="mb-3">
+          <div className="row">
+          <div className="col">
+          {/* <div className="mb-3">
             <label>Price</label>
             <input
               type="text"
@@ -1116,8 +1128,10 @@ export default function Infoadd() {
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
-          </div>
+          </div></div> */}
+          
 
+          
           <div className="mb-3">
             <label>State</label>
             <input
@@ -1127,8 +1141,9 @@ export default function Infoadd() {
               value={state}
               onChange={(e) => setState(e.target.value)}
             />
-          </div>
+          </div></div>
           
+          <div className="col">
           <div className="mb-3">
             <label>Property Images</label>
             <input
@@ -1137,9 +1152,10 @@ export default function Infoadd() {
               multiple
               onChange={handleImageChange}
             />
-          </div>
+          </div></div></div>
 
-          <div className="d-grid">
+          
+           <div className="d-grid">
             <button type="submit" className="btn btn-primary">
               Submit
             </button>
