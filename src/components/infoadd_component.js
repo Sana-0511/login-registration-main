@@ -977,6 +977,8 @@ export default function Infoadd() {
   const [mapLocation, setMapLocation] = useState("");
   const [description, setDescription] = useState("");
   const [state, setState] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [propertyImages, setPropertyImages] = useState([]);
   const [imageUrls, setImageUrls] = useState([]);
 
@@ -1005,6 +1007,8 @@ export default function Infoadd() {
         description,
         state,
         propertyImages: downloadUrls,
+        email,
+        phone,
       };
 
       await db.collection("PropertyRecord").add(propertyData);
@@ -1019,6 +1023,8 @@ export default function Infoadd() {
       setMapLocation("");
       setDescription("");
       setState("");
+      setPhone("");
+      setEmail("");
       setPropertyImages([]);
       setImageUrls([]);
     } catch (error) {
@@ -1146,6 +1152,31 @@ export default function Infoadd() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             ></input>
+          </div></div></div>
+
+          <div className="row">
+          <div className="col">
+          <div className="mb-3">
+            <label>Phone Number</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter Phone number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div></div>
+
+          <div className="col">
+          <div className="mb-3">
+            <label>Email Address</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div></div></div>
 
           <div className="row">
