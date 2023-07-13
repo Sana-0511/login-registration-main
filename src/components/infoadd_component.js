@@ -967,6 +967,7 @@ export default function Infoadd() {
 
 import React, { useState } from "react";
 import { storage, db } from "./firebaseConfig.js";
+import { imageFileResizer } from "react-image-file-resizer";
 
 export default function Infoadd() {
   const [propertyName, setPropertyName] = useState("");
@@ -1026,10 +1027,40 @@ export default function Infoadd() {
     }
   };
 
-  const handleImageChange = (e) => {
+  /*const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     setPropertyImages(files);
+  };*/
+  const handleImageChange = async (e) => {
+    const files = Array.from(e.target.files);
+  
+    try {
+      const resizedImages = await Promise.all(
+        files.map((file) =>
+          new Promise((resolve) => {
+            imageFileResizer(
+              file,
+              800, // Max width
+              600, // Max height
+              "JPEG", // Output format
+              100, // Quality
+              0, // Rotation
+              (uri) => {
+                resolve(uri);
+              },
+              "base64" 
+            );
+          })
+        )
+      );
+  
+      setPropertyImages(resizedImages);
+    } catch (error) {
+      console.log("Error resizing images:", error);
+      alert("Something went wrong");
+    }
   };
+
 
   return (
     <div className="auth-wrapper">
