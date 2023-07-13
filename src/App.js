@@ -39,6 +39,7 @@ import Login from "./components/login_component";
 import SignUp from "./components/signup_component";
 //import UserDetails from "./components/userDetails";
 import Infoadd from "./components/infoadd_component";
+import ContactTable from "./components/Contacts";
 
 function App() {
   const logOut = () => {
@@ -72,8 +73,14 @@ function App() {
                   </li>
 
                   <li className="nav-item">
+                    <Link className="nav-link text-white" to="/contacttable">
+                      Users
+                    </Link>
+                  </li>
+
+                  <li className="nav-item">
                     <Link className="nav-link text-white" to="/infoadd">
-                      Info Add
+                      Add Property
                     </Link>
                   </li>
                   <li className="nav-item">
@@ -96,6 +103,10 @@ function App() {
         <Route
             path="/propertytable"
             element={loggedIn ? <PropertyTable /> : <Login handleLogin={handleLogin} />}
+          />
+          <Route
+            path="/contacttable"
+            element={loggedIn ? <ContactTable /> : <Login handleLogin={handleLogin} />}
           />
           <Route path="/sign-in" element={<Login handleLogin={handleLogin} />} />
           <Route path="/sign-up" element={<SignUp />} />
