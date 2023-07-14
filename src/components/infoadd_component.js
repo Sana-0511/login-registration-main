@@ -1033,11 +1033,11 @@ export default function Infoadd() {
     }
   };
 
-  /*const handleImageChange = (e) => {
+  const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
     setPropertyImages(files);
-  };*/
-  const handleImageChange = async (e) => {
+  };
+  /*const handleImageChange = async (e) => {
     const files = Array.from(e.target.files);
   
     try {
@@ -1065,7 +1065,7 @@ export default function Infoadd() {
       console.log("Error resizing images:", error);
       alert("Something went wrong");
     }
-  };
+  };*/
 
 
   return (
