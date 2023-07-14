@@ -30,7 +30,9 @@ function App() {
 }
 
 export default App;*/
+
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -53,6 +55,7 @@ function App() {
   const handleLogin = () => {
     setLoggedIn(true);
     window.localStorage.setItem("loggedIn", "true");
+    //window.location.href = "./propertytable";
   };
 
   return (
@@ -61,7 +64,7 @@ function App() {
         {loggedIn && (
           <nav className="navbar navbar-expand-lg navbar-light ">
             <div className="container-fluid">
-              <Link className="navbar-brand text-white" to="/">
+              <Link className="navbar-brand text-white" to="/propertytable">
                 AADYA VENTURES
               </Link>
               
