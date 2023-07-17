@@ -967,7 +967,6 @@ export default function Infoadd() {
 
 import React, { useState } from "react";
 import { storage, db } from "./firebaseConfig.js";
-import { imageFileResizer } from "react-image-file-resizer";
 
 export default function Infoadd() {
   const [propertyName, setPropertyName] = useState("");
@@ -1069,14 +1068,13 @@ export default function Infoadd() {
 
 
   return (
-    <div className="auth-wrapper">
+    <div className="auth-wrapper my-3">
       <div className="auth-inner-prop">
         <form onSubmit={handleSubmit}>
           <h3>Property Details</h3>
 
           <div className="row">
           <div className="col">
-
           <div className="mb-3">
             <label>Property Name</label>
             <input
@@ -1088,9 +1086,7 @@ export default function Infoadd() {
             />
           </div></div>
 
-          
           <div className="col">
-
           <div className="mb-3">
             <label>Property Type</label>
             <select
@@ -1117,7 +1113,6 @@ export default function Infoadd() {
             />
           </div></div>
 
-         
           <div className="col">
           <div className="mb-3">
             <label>Area (sqft)</label>
@@ -1133,10 +1128,11 @@ export default function Infoadd() {
           <div className="row">
           <div className="col">
           <div className="mb-3">
-            <label>Google Maps Location Link</label>
+            <label className="input-title">Google Maps Location Link</label>
             <input
               type="text"
               className="form-control"
+              style={{width:"740px", height: '40px'}}
               placeholder="Enter Google Maps location link"
               value={mapLocation}
               onChange={(e) => setMapLocation(e.target.value)}
@@ -1145,13 +1141,14 @@ export default function Infoadd() {
 
           <div className="col">
           <div className="mb-3">
-            <label>Description</label>
-            <input
+            <label class="text-left">Description</label>
+            <textarea
               className="form-control"
+              style={{ height: '40px' }}
               placeholder="Enter property description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-            ></input>
+            ></textarea>
           </div></div></div>
 
           <div className="row">
@@ -1180,20 +1177,7 @@ export default function Infoadd() {
           </div></div></div>
 
           <div className="row">
-          <div className="col">
-          {/* <div className="mb-3">
-            <label>Price</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Enter price"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-            />
-          </div></div> */}
-          
-
-          
+          <div className="col">        
           <div className="mb-3">
             <label>State</label>
             <input
@@ -1215,7 +1199,6 @@ export default function Infoadd() {
               onChange={handleImageChange}
             />
           </div></div></div>
-
           
            <div className="d-grid">
             <button type="submit" className="btn btn-primary">
@@ -1224,7 +1207,7 @@ export default function Infoadd() {
           </div>
         </form>
       </div>
-    </div>
+     </div>
   );
 }
 
