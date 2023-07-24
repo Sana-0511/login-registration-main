@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { db } from "./firebaseConfig.js";
+import React, { useEffect, useState } from 'react';
+import { db } from './firebaseConfig.js';
 
 export default function ContactTable() {
   const [contactData, setContactData] = useState([]);
+  const [readCounter, setReadCounter] = useState(0); // Read counter state variable
 
   useEffect(() => {
     fetchData();
@@ -10,22 +11,28 @@ export default function ContactTable() {
 
   const fetchData = async () => {
     try {
-      const snapshot = await db.collection("ContactUsRecord").get();
+      const snapshot = await db.collection('ContactUsRecord').get();
       const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
       setContactData(data);
+
+      // Increment the read counter each time data is fetched from Firestore
+      setReadCounter((prevCounter) => prevCounter + 1);
     } catch (error) {
-      console.log("Error fetching contact data:", error);
+      console.log('Error fetching contact data:', error);
     }
   };
 
   const deleteContact = async (id) => {
     try {
-      await db.collection("ContactUsRecord").doc(id).delete();
-      fetchData();
+      await db.collection('ContactUsRecord').doc(id).delete();
+      fetchData(); // Fetch data again after deleting a contact
     } catch (error) {
-      console.log("Error deleting contact:", error);
+      console.log('Error deleting contact:', error);
     }
   };
+
+  // Log the number of reads to the console
+  console.log('Number of Reads:', readCounter);
 
   return (
     <div className="property-table-container">

@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { db } from "./firebaseConfig.js";
-
+import React, { useEffect, useState } from 'react';
+import { db } from './firebaseConfig.js';
 
 export default function PropertyTable() {
   const [propertyData, setPropertyData] = useState([]);
-  const [editPropertyId, setEditPropertyId] = useState("");
-  const [editPropertyName, setEditPropertyName] = useState("");
-  const [editPropertyType, setEditPropertyType] = useState("");
-  const [editPropertyAddress, setEditPropertyAddress] = useState("");
-  const [editPropertyArea, setEditPropertyArea] = useState("");
-  const [editPropertyMapLocation, setEditPropertyMapLocation] = useState("");
-  const [editPropertyState, setEditPropertyState] = useState("");
+  const [editPropertyId, setEditPropertyId] = useState('');
+  const [editPropertyName, setEditPropertyName] = useState('');
+  const [editPropertyType, setEditPropertyType] = useState('');
+  const [editPropertyAddress, setEditPropertyAddress] = useState('');
+  const [editPropertyArea, setEditPropertyArea] = useState('');
+  const [editPropertyMapLocation, setEditPropertyMapLocation] = useState('');
+  const [editPropertyState, setEditPropertyState] = useState('');
+  const [readCounter, setReadCounter] = useState(0); // Read counter state variable
 
   useEffect(() => {
     fetchData();
@@ -18,11 +18,12 @@ export default function PropertyTable() {
 
   const fetchData = async () => {
     try {
-      const snapshot = await db.collection("PropertyRecord").get();
+      const snapshot = await db.collection('PropertyRecord').get();
       const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setReadCounter((prevCounter) => prevCounter + 1); // Increment read counter
       setPropertyData(data);
     } catch (error) {
-      console.log("Error fetching property data:", error);
+      console.log('Error fetching property data:', error);
     }
   };
 
